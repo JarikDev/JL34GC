@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Main {
+    Object o;
     public static void main(String[] args) {
   /*      Date dt = method2();
         dt = null;
@@ -28,6 +29,11 @@ public class Main {
         System.gc();
         System.out.println("total memory after GC " + runtime.totalMemory());
         System.out.println("free memory after GC " + runtime.freeMemory());
+        Main main = new Main();
+        main=null;
+        Main main2 = new Main();
+        main2=null;
+        System.gc();
     }
 
     private static Date method2() {
@@ -36,5 +42,9 @@ public class Main {
         Date date2 = date;
         System.out.println(date);
         return date;
+    }
+    @Override
+    public void finalize() {
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     }
 }
